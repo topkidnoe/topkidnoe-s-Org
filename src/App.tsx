@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { AccountModal } from './components/AccountModal';
 import { AppShell } from './components/AppShell';
 import { ChatbotView } from './components/ChatbotView';
@@ -46,15 +47,17 @@ export default function App() {
   const [accountModalOpen, setAccountModalOpen] = useState(false);
 
   return (
-    <AppShell
-      activeModule={activeModule}
-      onSelectModule={setActiveModule}
-      currentUser={currentUser}
-      isAuthenticated={isAuthenticated}
-      onOpenQuickEntry={() => setQuickEntryOpen(true)}
-      onOpenAccountModal={() => setAccountModalOpen(true)}
-      syncNotice={syncNotice}
-    >
+    <>
+      <Analytics />
+      <AppShell
+        activeModule={activeModule}
+        onSelectModule={setActiveModule}
+        currentUser={currentUser}
+        isAuthenticated={isAuthenticated}
+        onOpenQuickEntry={() => setQuickEntryOpen(true)}
+        onOpenAccountModal={() => setAccountModalOpen(true)}
+        syncNotice={syncNotice}
+      >
       {activeModule === 'tracker' && (
         <TrackerView
           transactions={transactions}
@@ -117,5 +120,6 @@ export default function App() {
         onResetDemoData={resetDemoData}
       />
     </AppShell>
+    </>
   );
 }
