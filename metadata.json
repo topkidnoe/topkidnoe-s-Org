@@ -1,0 +1,6 @@
+{
+  "name": "BizBuddy",
+  "description": "Platform keuangan operasional harian, kalkulator harga dan BEP, dashboard analitik, serta asisten AI terisolasi untuk pelaku UMKM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
